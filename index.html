@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For my love❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #ffe6f0;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+.active {
+    display: flex;
+}
+
+img {
+    width: 260px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+button {
+    padding: 12px 22px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+textarea {
+    width: 80%;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+}
+
+#balloon {
+    font-size: 120px;
+    cursor: pointer;
+}
+
+#final {
+    background: pink;
+}
+
+.cakes {
+    font-size: 50px;
+}
+
+/* confetti */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    from { transform: translateY(-100vh); }
+    to { transform: translateY(100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 PASSWORD -->
+<div class="page active" id="page1">
+    <h1>Enter Password 💌</h1>
+    <input type="password" id="pass">
+    <button onclick="check()">Enter</button>
+</div>
+
+<!-- PAGE 2 PHOTO -->
+<div class="page" id="page2">
+    <img src="images/img1.jpg.jpeg">
+    <p>✏️ so proud of you my baby </p>
+    <button onclick="go(3)">Next 💕</button>
+</div>
+
+<!-- PAGE 3 PHOTO -->
+<div class="page" id="page3">
+    <img src="images/img2.jpg.jpeg">
+    <p>✏️ our first cute date </p>
+    <button onclick="go(4)">Next 💖</button>
+</div>
+
+<!-- PAGE 4 FEELINGS ONLY -->
+<div class="page" id="page4">
+    <h2>For You ❤️</h2>
+    <textarea placeholder=" My Love Happiest Birthday, I am literally so thankful to god that he sent you in my life. 
+I am super duper proud of you baby and will always be. You are so good at sports, wow literally wowww!!!. no nazarrr…. 
+You make me the happiest girlfriend truly. I just wish all your dreams come true, and may you achieve everything you always wanted, always stay happy my bacha, 
+because your smile makes my day soo much better. I love you"></textarea>
+    <button onclick="go(5)">One last thing 🎈</button>
+</div>
+
+<!-- PAGE 5 BALLOON -->
+<div class="page" id="page5">
+    <div id="balloon" onclick="burst()">🎈</div>
+    <p>Tap the balloon</p>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="final">
+    <h1 style="font-size:60px;">🎂💖 I LOVE YOU 💖🎂</h1>
+    <div class="cakes">
+        🎂 🎂 🎂 🎂 🎂 <br>
+        🎂 🎂 🎂 🎂 🎂
+    </div>
+</div>
+
+<script>
+function check() {
+    if (document.getElementById("pass").value === "230925") {
+        go(2);
+    } else {
+        alert("Wrong password 😛");
+    }
+}
+
+function go(n) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("page" + n)?.classList.add("active");
+}
+
+function burst() {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("final").classList.add("active");
+}
+
+/* confetti everywhere */
+for (let i = 0; i < 60; i++) {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
